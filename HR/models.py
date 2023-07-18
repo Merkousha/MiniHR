@@ -6,6 +6,8 @@ from django.utils.crypto import get_random_string
     
 class WeekDay(models.Model):
     name = models.CharField(max_length=20)  
+    def __str__(self):
+        return self.name
 
 class Year(models.Model):
     # refrence = models.ForeignKey(Refrence, on_delete=models.CASCADE,default=1)   
@@ -25,8 +27,9 @@ class Day(models.Model):
     month = models.ForeignKey(Month, on_delete=models.CASCADE,default=1)   
     weekday = models.ForeignKey(WeekDay, on_delete=models.CASCADE,default=1)   
     day_work = models.BooleanField()
+    day_of_month = models.IntegerField(choices=[(i, i) for i in range(1, 32)],default=1)
     def __str__(self):
-        return self.name
+        return str(self.day_of_month)
 
 class Gender(models.Model):
     name = models.CharField(max_length=20)  
