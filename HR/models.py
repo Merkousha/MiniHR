@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 from django.utils.text import slugify
 from django.utils.crypto import get_random_string
-    
+from enums.work_type import WorkType
+
 class WeekDay(models.Model):
     name = models.CharField(max_length=20)  
     def __str__(self):
@@ -51,7 +52,9 @@ class Employee(models.Model):
     join_date = models.DateField()
     is_active = models.BooleanField()
     
-    
-    
-    
-    
+
+class EmployeeWorkReport(models.Model):
+    work_date = models.DateField()
+    work_time = models.IntegerField()
+    work_type =  models.CharField(choices=[(w.value, w.value) for w in WorkType],max_length=50)
+    description = models.TextField()

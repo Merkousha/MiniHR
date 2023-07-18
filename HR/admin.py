@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib import admin
-from HR.models import Year, Month, WeekDay, Day, Employee, EmployeeType, Day, Gender
+from HR.models import EmployeeWorkReport, Year, Month, WeekDay, Day, Employee, EmployeeType, Day, Gender
 
 
 class MonthInline(admin.TabularInline):
@@ -31,3 +31,4 @@ admin.site.register(Day)
 admin.site.register(Gender)
 admin.site.register(EmployeeType)
 admin.site.register(Employee)
+admin.site.register(EmployeeWorkReport)
