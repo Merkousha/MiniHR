@@ -6861,3 +6861,5 @@ MiniHRenv/Scripts/pip3.exe
 MiniHRenv/Scripts/python.exe
 MiniHRenv/Scripts/pythonw.exe
 MiniHRenv/Scripts/sqlformat.exe
+.vscode/settings.json
+db.sqlite3
