@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib import admin
+from HR.forms.employee_work_report_form import EmployeeWorkReportForm
 from HR.models import EmployeeWorkReport, Year, Month, WeekDay, Day, Employee, EmployeeType, Day, Gender
 
 
@@ -22,6 +23,9 @@ class DayInline(admin.TabularInline):
 class MonthModelAdmin(admin.ModelAdmin):
     inlines = [DayInline]
 
+class EmployeeWorkReportAdmin(admin.ModelAdmin):
+    form = EmployeeWorkReportForm
+
 
 admin.site.register(Year, YearModelAdmin)
 admin.site.register(Month, MonthModelAdmin)
@@ -31,4 +35,5 @@ admin.site.register(Day)
 admin.site.register(Gender)
 admin.site.register(EmployeeType)
 admin.site.register(Employee)
-admin.site.register(EmployeeWorkReport)
+admin.site.register(EmployeeWorkReport, EmployeeWorkReportAdmin)
+
