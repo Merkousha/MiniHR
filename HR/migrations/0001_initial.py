@@ -3,25 +3,9 @@
 from django.db import migrations, models
 import django.db.models.deletion
 
-def create_superuser(apps, schema_editor):
-    User = apps.get_model('auth', 'User')
-    User.objects.create_superuser(
-        username='admin',
-        email='admin@amr.ae',
-        password='1234'
-    )
-
 class Migration(migrations.Migration):
 
     initial = True
-
-    dependencies = [
-        ('MiniHr', '0001_initial'),
-    ]
-
-    operations = [
-        migrations.RunPython(create_superuser),
-    ]
 
     operations = [
         migrations.CreateModel(
