@@ -4,12 +4,14 @@ from django.views.generic import RedirectView
 from django.conf.urls.static import static 
 from django.conf import settings  
 from django.contrib import admin
-from .views import home
+from .views import home, report, report_results
 
 
 urlpatterns = [
     path('', home, name='home'),
     path('tinymce/', include('tinymce.urls')),
+    path('admin/report', report, name='report'),
+    path('admin/report/results', report_results, name='report_results'),
 ]
 
 

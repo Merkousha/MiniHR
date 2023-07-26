@@ -1,0 +1,11 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+  <div class="report-form">
+    <form method="post" action="{% url 'report_results' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="button" type="submit">Generate Report</button>
+    </form>
+  </div>
+{% endblock %}
