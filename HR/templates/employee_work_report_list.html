@@ -1,0 +1,31 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+  <table>
+    <thead>
+      <tr>
+        <th>year</th>
+        <th>month</th>
+        <th>day</th>
+        <th>work time</th>
+        <th>work type</th>
+        <th>description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for report in model %}
+        <tr>
+          <td>{{ report.work_date_year.name }}</td>
+          <td>{{ report.work_date_month.name }}</td>
+          <td>{{ report.work_date_day.day_of_month }}</td>
+          <td>{{ report.work_time }}</td>
+          <td>{{ report.work_type }}</td>
+          <td>{{ report.description }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
+
+

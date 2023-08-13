@@ -8,6 +8,7 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('admin/report', views.report, name='report'),
     path('admin/report/results', views.report_results, name='report_results'),
+    path('work_report/list/',views.employee_work_Report_list, name='employee_work_Report_list'),
     path('work_report/add/',views.add_employee_work_report, name='add_employee_work_report'),
 ]
 

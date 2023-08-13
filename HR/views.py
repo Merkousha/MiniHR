@@ -7,6 +7,11 @@ from .models.employee_work_report import EmployeeWorkReport
 def home(request):
     return render(request, 'home.html')
 
+def employee_work_Report_list(request):
+    employee = get_object_or_404(Employee, user_id=request.user.id)
+    model = EmployeeWorkReport.objects.filter(employee=employee).select_related('employee').all()
+    return render(request, 'employee_work_report_list.html', {'model': model})
+
 def add_employee_work_report(request):
     if request.method == 'POST':
         form = EmployeeWorkReportForm(request.POST)
